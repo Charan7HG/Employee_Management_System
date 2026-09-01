@@ -1,0 +1,197 @@
+/* ================================
+   Employee Form Page
+================================ */
+
+.employee-form-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ================================
+   Form Container
+================================ */
+
+.employee-form-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: white;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ================================
+   Header
+================================ */
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #1f2937;
+}
+
+.form-header p {
+    margin-top: 8px;
+    color: #6b7280;
+}
+
+
+/* ================================
+   Form Grid
+================================ */
+
+.employee-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+/* ================================
+   Form Group
+================================ */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08);
+}
+
+
+/* ================================
+   Profile Photo
+================================ */
+
+.photo-section {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.photo-section label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.photo-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e5e7eb;
+}
+
+
+/* ================================
+   Buttons
+================================ */
+
+.form-actions {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.save-button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background: #1d4ed8;
+}
+
+.cancel-button {
+    border: none;
+    background: #f3f4f6;
+    color: #374151;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background: #e5e7eb;
+}
+
+
+/* ================================
+   Mobile
+================================ */
+
+@media (max-width: 700px) {
+
+    .employee-form-page {
+        padding: 20px;
+    }
+
+    .employee-form-container {
+        padding: 25px;
+    }
+
+    .employee-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width,
+    .photo-section,
+    .form-actions {
+        grid-column: span 1;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .save-button,
+    .cancel-button {
+        width: 100%;
+    }
+}
+

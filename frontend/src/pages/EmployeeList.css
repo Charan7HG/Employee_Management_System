@@ -1,0 +1,230 @@
+
+/* ================================
+   Main Dashboard
+================================ */
+
+.employee-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ================================
+   Header
+================================ */
+
+.employee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.employee-header h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #1f2937;
+}
+
+.employee-header p {
+    margin-top: 6px;
+    color: #6b7280;
+}
+
+
+/* ================================
+   Add Button
+================================ */
+
+.add-button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ================================
+   Search
+================================ */
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 13px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.search-input:focus {
+    border-color: #2563eb;
+}
+
+
+/* ================================
+   Employee Table Card
+================================ */
+
+.table-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ================================
+   Table
+================================ */
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.employee-table th {
+    text-align: left;
+    padding: 16px;
+    background: #f9fafb;
+    color: #6b7280;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.employee-table td {
+    padding: 16px;
+    border-top: 1px solid #f0f0f0;
+    color: #374151;
+    font-size: 14px;
+}
+
+.employee-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+
+/* ================================
+   Employee Name
+================================ */
+
+.employee-name {
+    font-weight: 600;
+    color: #111827;
+}
+
+
+/* ================================
+   Department Badge
+================================ */
+
+.department-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* ================================
+   Action Buttons
+================================ */
+
+.action-button {
+    border: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 6px;
+    font-weight: 600;
+}
+
+.view-button {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.edit-button {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.delete-button {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.action-button:hover {
+    opacity: 0.8;
+}
+
+
+/* ================================
+   Empty State
+================================ */
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #6b7280;
+}
+
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 900px) {
+
+    .employee-page {
+        padding: 20px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .employee-table {
+        min-width: 800px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .employee-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .employee-header h1 {
+        font-size: 24px;
+    }
+
+    .add-button {
+        width: 100%;
+    }
+
+}
