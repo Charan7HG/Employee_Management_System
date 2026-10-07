@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173","http://employee-management-frontend-charan-2026.s3-website.ap-south-1.amazonaws.com"})
 public class EmployeeController {
 
     private final EmployeeService employeeService;
