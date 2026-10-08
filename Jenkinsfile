@@ -93,7 +93,7 @@ stage('Deploy Backend to ECS') {
 
 
 
-        stage('Wait for ECS Deployment') {
+      stage('Deploy Frontend to S3') {
     steps {
         withCredentials([
             string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
@@ -101,9 +101,7 @@ stage('Deploy Backend to ECS') {
         ]) {
             withEnv(['AWS_DEFAULT_REGION=ap-south-1']) {
                 bat '''
-                    aws ecs wait services-stable ^
-                        --cluster employeehub-cluster ^
-                        --services employeehub-backend-service-npgbcuc1
+                    aws s3 sync frontend/dist s3://employee-management-frontend-charan-2026 --delete
                 '''
             }
         }
