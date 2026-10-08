@@ -33,13 +33,13 @@ pipeline {
         }
     }
 }
-
-        stage('Check Docker') {
-            steps {
-                bat 'docker --version'
-            }
-        }
+        stage('Check AWS CLI') {
+    steps {
+        bat 'aws --version'
+        bat 'aws sts get-caller-identity'
     }
+}
+
 
     post {
         success {
