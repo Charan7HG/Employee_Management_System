@@ -40,7 +40,7 @@ pipeline {
     }
 }
 
-
+    }
     post {
         success {
             echo 'CI build completed successfully!'
@@ -52,4 +52,4 @@ pipeline {
     }
 }
 
-}
+
