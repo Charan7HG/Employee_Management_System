@@ -1,39 +1,45 @@
 pipeline {
-agent any
-stages {
+    agent any
 
-    stage('Checkout') {
-        steps {
-            checkout scm
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
         }
-    }
 
-    stage('Backend Build') {
-        steps {
-            dir('backend/backend') {
-                bat 'mvnw.cmd clean package -DskipTests'
+        stage('Backend Build') {
+            steps {
+                dir('backend/backend') {
+                    bat 'mvnw.cmd clean package -DskipTests'
+                }
+            }
+        }
+
+        stage('Frontend Build') {
+            steps {
+                dir('frontend') {
+                    bat 'npm install'
+                    bat 'npm run build'
+                }
+            }
+        }
+
+        stage('Check Docker') {
+            steps {
+                bat 'docker --version'
             }
         }
     }
 
-    stage('Frontend Build') {
-        steps {
-            dir('frontend') {
-                bat 'npm install'
-                bat 'npm run build'
-            }
+    post {
+        success {
+            echo 'CI build completed successfully!'
+        }
+
+        failure {
+            echo 'Pipeline failed. Check the stage logs above.'
         }
     }
-}
-
-post {
-    success {
-        echo 'Backend and Frontend build completed successfully!'
-    }
-
-    failure {
-        echo 'Pipeline failed. Check the stage logs above.'
-    }
-}
-
 }
