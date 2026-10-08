@@ -90,21 +90,26 @@ stage('Deploy Backend to ECS') {
         }
     }
 }
-        
 
 
 
+        stage('Wait for ECS Deployment') {
+    steps {
+        withCredentials([
+            string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+            string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
+        ]) {
+            withEnv(['AWS_DEFAULT_REGION=ap-south-1']) {
+                bat '''
+                    aws ecs wait services-stable ^
+                        --cluster employeehub-cluster ^
+                        --services employeehub-backend-service-npgbcuc1
+                '''
+            }
+        }
+    }
+}
 
-        
-
-
-
-
-
-
-        
-
-        
 
     }
     post {
