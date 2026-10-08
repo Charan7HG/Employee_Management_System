@@ -26,6 +26,14 @@ pipeline {
             }
         }
 
+        stage('Docker Build') {
+    steps {
+        dir('backend/backend') {
+            bat 'docker build -t employeehub-backend:latest .'
+        }
+    }
+}
+
         stage('Check Docker') {
             steps {
                 bat 'docker --version'
