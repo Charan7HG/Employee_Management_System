@@ -72,6 +72,40 @@ pipeline {
 }
 
 
+
+stage('Deploy Backend to ECS') {
+    steps {
+        withCredentials([
+            string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+            string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
+        ]) {
+            withEnv(['AWS_DEFAULT_REGION=ap-south-1']) {
+                bat '''
+                    aws ecs update-service ^
+                        --cluster employeehub-cluster ^
+                        --service employeehub-backend-service-npgbcuc1 ^
+                        --force-new-deployment
+                '''
+            }
+        }
+    }
+}
+        
+
+
+
+
+        
+
+
+
+
+
+
+        
+
+        
+
     }
     post {
         success {
