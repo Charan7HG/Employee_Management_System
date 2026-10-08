@@ -33,20 +33,20 @@ pipeline {
         }
     }
 }
-       stage('AWS Authentication') {
-    steps {
-        withCredentials([
-            usernamePassword(
-                credentialsId: 'aws-employeehub',
-                usernameVariable: 'AWS_ACCESS_KEY_ID',
-                passwordVariable: 'AWS_SECRET_ACCESS_KEY'
-            )
-        ]) {
-            bat 'aws --version'
-            bat 'aws sts get-caller-identity'
+               stage('AWS Authentication') {
+            steps {
+                withCredentials([
+                    string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+                    string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
+                ]) {
+                    withEnv(['AWS_DEFAULT_REGION=us-east-1']) {
+                        bat 'aws --version'
+                        bat 'aws sts get-caller-identity'
+                    }
+                }
+            }
         }
-    }
-}
+
 
     }
     post {
