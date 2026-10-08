@@ -33,10 +33,18 @@ pipeline {
         }
     }
 }
-        stage('Check AWS CLI') {
+       stage('AWS Authentication') {
     steps {
-        bat 'aws --version'
-        bat 'aws sts get-caller-identity'
+        withCredentials([
+            usernamePassword(
+                credentialsId: 'aws-employeehub',
+                usernameVariable: 'AWS_ACCESS_KEY_ID',
+                passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+            )
+        ]) {
+            bat 'aws --version'
+            bat 'aws sts get-caller-identity'
+        }
     }
 }
 
